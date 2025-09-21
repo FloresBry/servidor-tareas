@@ -7,8 +7,10 @@
 </head>
 <body>
     <h1>Crear Tarea</h1>
-    <form>
-        
+    <form >
+        @csrf
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" value="nombre">
     </form>
 </body>
 </html>
