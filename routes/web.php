@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TareaController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -10,17 +12,11 @@ Route::get('/', function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-Route::get('tarea',function(){
-    return  view('lista-tareas');
-}
-);
-Route::get('tarea/crear',function(){
-    return view('crear-tarea');
-}
-);
-Route::post('tarea/crear',function(){
-    return 'TAREA CREADA';
-});
+#Route::get('tarea',[TareaController::class,'index']);
+#Route::get('tarea/crear',[TareaController::class,'create']);
+#Route::post('tarea/crear',[TareaController::class,'store']);
+route::resource('tarea',TareaController::class);
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
@@ -29,5 +25,6 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
 });
+route::resource('tarea',TareaController::class);
 
 require __DIR__.'/auth.php';
