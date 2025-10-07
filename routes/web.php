@@ -15,7 +15,9 @@ Route::view('dashboard', 'dashboard')
 #Route::get('tarea',[TareaController::class,'index']);
 #Route::get('tarea/crear',[TareaController::class,'create']);
 #Route::post('tarea/crear',[TareaController::class,'store']);
-route::resource('tarea',TareaController::class);
+Route::resource('tarea',TareaController::class);
+
+
 
 
 Route::middleware(['auth'])->group(function () {
