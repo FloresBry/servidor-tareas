@@ -12,7 +12,7 @@
             <a href="{{route('tarea.create')}}">Crear nueva tarea</a>
         </li>
     </ul>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
@@ -24,7 +24,11 @@
             @foreach ( $tareas as $tarea )
                 <tr>
                     <td>{{ $tarea->id }}</td>
-                    <td>{{ $tarea->titulo }}</td>
+                    <td>
+                        <a href="{{route('tarea.show',$tarea->id) }}">
+                        {{ $tarea->titulo }}
+                        </a>
+                    </td>
                     <td>-----</td>
                 </tr>
             @endforeach

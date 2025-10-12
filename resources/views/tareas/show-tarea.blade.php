@@ -8,23 +8,13 @@
 <body>
     <ul>
         <li>
-            <a href="{{ route('') }}"></a>
+            <a href="{{ route('tarea.index') }}">Tareas</a>
         </li>
     </ul>
-    <table>
-    <thead>
-
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <a>
-
-                </a>
-            </td>
-            <td></td>
-        </tr>
-    </tbody>
-    </table>
+    <h1>Tarea: {{ $tarea->titulo }}</h1>
+    <p>
+        <strong>Descripcion:</strong><br>
+        {{ $tarea->descripcion }}
+    </p>
 </body>
 </html>

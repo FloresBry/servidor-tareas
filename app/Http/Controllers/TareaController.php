@@ -30,7 +30,7 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $tarea=new Tarea();
         $tarea->titulo=$request->titulo;
         $tarea->descripcion = $request->descripcion;  
@@ -43,7 +43,7 @@ class TareaController extends Controller
      */
     public function show(Tarea $tarea)
     {
-        //
+        return view('tareas.show-tarea',compact('tarea'));
     }
 
     /**
