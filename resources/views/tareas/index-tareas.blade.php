@@ -29,7 +29,7 @@
                         {{ $tarea->titulo }}
                         </a>
                     </td>
-                    <td>-----</td>
+                    <td><a href="{{ route('tarea.edit',$tarea->id) }}">Editar</a></td>
                 </tr>
             @endforeach
         </tbody>
