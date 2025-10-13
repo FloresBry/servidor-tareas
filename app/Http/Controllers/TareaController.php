@@ -65,6 +65,12 @@ class TareaController extends Controller
      */
     public function update(Request $request, Tarea $tarea)
     {
+        $request->validate([
+            'titulo'=>'required|max:20',
+            'descripcion'=>['required',
+            'min:5',
+            'max:500']
+        ]);
         $tarea->titulo=$request->titulo;
         $tarea->descripcion=$request->descripcion;
         $tarea->save();

@@ -7,14 +7,15 @@
 </head>
 <body>
     <h1>Editar Tarea</h1>
+    @include('form-error')
     <form action="{{ route('tarea.update',$tarea->id) }}" method="post">
         @csrf
         @method('PATCH')
         <label for="titulo">Titulo:</label>
-        <input type="text" id="titulo" name="titulo" value="{{ $tarea->titulo }}" required>
+        <input type="text" id="titulo" name="titulo" value="{{  old('titulo') ?? $tarea->titulo }}" >
         <br>
         <label for="descripcion">Descripcion:</label>
-        <textarea  id="descripcion" name="descripcion"  value="{{ $tarea->descripcion }}" required></textarea>
+        <textarea  id="descripcion" name="descripcion"   >{{ old('descripcion') ?? $tarea->descripcion }}</textarea>
         <br>
         <button type="submit">Guardar</button>
     </form>

@@ -7,15 +7,7 @@
 </head>
 <body>
     <h1>Creacion Tarea</h1>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('form-error')
     <form action="{{ route('tarea.store') }}" method="post">
         @csrf
         <label for="titulo">Titulo:</label>
