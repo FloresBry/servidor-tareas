@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\TareaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,10 @@ Route::view('dashboard', 'dashboard')
 #Route::get('tarea',[TareaController::class,'index']);
 #Route::get('tarea/crear',[TareaController::class,'create']);
 #Route::post('tarea/crear',[TareaController::class,'store']);
-Route::resource('tarea',TareaController::class);
+Route::resource('tarea',TareaController::class); 
+Route::resource('alumno',AlumnoController::class);
+
+
 
 
 
