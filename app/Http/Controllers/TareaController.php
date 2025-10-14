@@ -32,7 +32,7 @@ class TareaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'titulo'=>'required|max:20',
+            'titulo'=>'required|max:200',
             'descripcion'=>['required',
             'min:5',
             'max:500']
@@ -66,7 +66,7 @@ class TareaController extends Controller
     public function update(Request $request, Tarea $tarea)
     {
         $request->validate([
-            'titulo'=>'required|max:20',
+            'titulo'=>'required|max:200',
             'descripcion'=>['required',
             'min:5',
             'max:500']
