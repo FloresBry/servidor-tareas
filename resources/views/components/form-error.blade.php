@@ -1,5 +1,6 @@
-<h3>Aqui se muestran los errores</h3>
-@if ($errors->any())
+<div>
+    <h3>Aqui se muestran los errores con componente</h3>
+    @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -7,4 +8,6 @@
             @endforeach
         </ul>
     </div>
-@endif
+    @endif
+    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
+</div>
