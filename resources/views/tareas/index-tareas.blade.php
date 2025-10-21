@@ -1,46 +1,41 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
-    <h1>Listado de Tareas</h1>
-    <ul>
-        <li>
-            <a href="{{route('tarea.create')}}">Crear nueva tarea</a>
-        </li>
-    </ul>
-    <table border="1" class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Titulo</th>
-                <th>Acciones</th>
+<x-html_estructura>
+    <x-encabezado>
+    </x-encabezado>
+    <x-titulo>LISTADO</x-titulo>
+    <x-formato_tabla>
+        <thead class="table-warning">
+            <tr >
+                <th scope="col">ID</th>
+                <th scope="col">Titulo</th>
+                <th scope="col-sm">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ( $tareas as $tarea )
-                <tr>
+                <tr class="table-light">
                     <td>{{ $tarea->id }}</td>
                     <td>
                         <a href="{{route('tarea.show',$tarea->id) }}">
                         {{ $tarea->titulo }}
                         </a>
                     </td>
-                    <td><a  class="btn btn-warning"href="{{ route('tarea.edit',$tarea->id) }}">Editar</a>
+                    <td >
+                        <div class="d-grid gap-1 col-4 mx-auto">
+                        <a  class="btn btn-primary "href="{{ route('tarea.edit',$tarea->id) }}">Editar</a>
                         <form action="{{ route('tarea.destroy',$tarea->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger"type="submit">Eliminar</button>
                         </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach
         </tbody>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-</html>
+    </x-formato_tabla>
+<x-boton_enlace href="{{ route(name: 'tarea.create') }}">
+     Crear nueva tarea
+</x-boton_enlace>
+
+
+</x-html_estructura>

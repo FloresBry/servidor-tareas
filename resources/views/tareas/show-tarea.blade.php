@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
-        <li>
-            <a href="{{ route('tarea.index') }}">Tareas</a>
-        </li>
-    </ul>
-    <h1>Tarea: {{ $tarea->titulo }}</h1>
-    <p>
-        <strong>Descripcion:</strong><br>
-        {{ $tarea->descripcion }}
-    </p>
-</body>
-</html>
+<x-html_estructura>
+    <x-encabezado></x-encabezado>
+    <br>
+    <x-titulo>Tarea Editada</x-titulo>
+    <br>
+    <div class="card mx-auto text-bg-danger border-warning  " style="max-width: 220px">
+        <img src="data:image/webp;base64,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" alt="imagen tarea" class="card-img-top">
+        <div class="card-body">
+            <h5>
+                Tarea: {{ $tarea->id }}
+            </h5>
+            <p> {{ $tarea->titulo }}</p>
+            <p>
+                <strong>Descripcion:</strong><br>
+                {{ $tarea->descripcion }}
+            </p>
+        </div>
+    </div>
+    <br>
+    <x-boton_enlace href="{{ route('tarea.index') }}">
+    Tareas
+    </x-boton_enlace>
+
+</x-html_estructura>

@@ -1,4 +1,4 @@
-<h3>Aqui se muestran los errores</h3>
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
