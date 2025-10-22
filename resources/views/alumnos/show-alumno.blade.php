@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Tarea</title>
-</head>
-<body>
-    <ul>
-        <li>
-            <a href="{{ route('alumno.index') }}">Alumnos</a>
-        </li>
-    </ul>
+@php
+    $titulo="Detalle del Alumno ".$alumno->nombre;
+    $rutas_Alumnos=[
+        ['ruta'=>'alumno.index','etiqueta'=>'Listado de Alumnos'],
+        ['ruta'=>'alumno.create','etiqueta'=>'Crear Alumno']
+    ];
+@endphp
+<x-html_estructura>
+    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
+    <br>
+    <x-titulo>DETALLE DEL ALUMNO</x-titulo>
+    <br>
+    <div class="card mx-auto text-bg-danger border-warning  " style="max-width: 220px">
+        <div class="card-body">
     <h1>Alumno: <h3><italic>{{ $alumno->codigo }}</italic></h3></h1>
     <p>
         <strong>Nombre:</strong><br>
@@ -25,5 +26,10 @@
         {{ $alumno->carrera }}
 
     </p>
-</body>
-</html>
+    </div>
+</div>
+    <br>
+    <x-boton_enlace href="{{ route('alumno.index') }}">
+    Volver al listado de Alumnos
+    </x-boton_enlace>
+</x-html_estructura>
