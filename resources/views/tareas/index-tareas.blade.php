@@ -1,6 +1,12 @@
 <x-html_estructura>
-    <x-encabezado>
-    </x-encabezado>
+    @php
+        $titulo="Gestion de Tareas";
+        $rutas_Tareas=[
+            ['ruta'=>'tarea.index','etiqueta'=>'Listado de Tareas'],
+            ['ruta'=>'tarea.create','etiqueta'=>'Crear Tarea']
+        ];
+    @endphp
+    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
     <x-titulo>LISTADO</x-titulo>
     <x-formato_tabla>
         <thead class="table-warning">
