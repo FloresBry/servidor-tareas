@@ -1,69 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumno: Crear</title>
-</head>
-<body>
-    <h1>Creacion Alumno</h1>
+@php
+    $titulo="Crear Alumno";
+    $rutas_Alumnos=[
+        ['ruta'=>'alumno.index','etiqueta'=>'Listado de Alumnos'],
+        ['ruta'=>'alumno.create','etiqueta'=>'Crear Alumno']
+    ];
+@endphp
+<x-html_estructura>
+    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
+    <x-titulo>Creacion Alumno</x-titulo>
+    <x-tamanio_formulario>
+
     @include('form-error')
     <form action="{{ route('alumno.store') }}" method="post">
         @csrf
-        <label for="codigo">Codigo:</label>
-        <input 
-            type="text" id="codigo" 
-            name="codigo" 
-            value="{{ old('codigo') }}" >
-        @error('codigo')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+                <div class="col-md-12">
+        <label for="codigo" class="form-label">Codigo:</label>
+        <input  class="form-control" type="text" id="codigo" name="codigo" value="{{  old('codigo') }}" >
         <br>
-        <label for="nombre">Nombre:</label>
-        <input 
-            type="text" id="nombre" 
-            name="nombre" 
-            value="{{ old('nombre') }}" >
+        @error('codigo')
+            <div class="alert alert-danger">{{ $message }}</div>    
+        @enderror
+        </div>
+        <div class="col-md-12">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input class="form-control" type="text" id="nombre" name="nombre" value="{{  old('nombre') }}" >
+        <br>
         @error('nombre')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        </div>
+        <div class="col-md-12">
+        <label for="correo" class="form-label">Correo:</label>
+        <input class="form-control" type="email" id="correo" name="correo" value="{{  old('correo')  }}" >
         <br>
-        <label for="correo">Correo:</label>
-        <input 
-            type="email" id="correo" 
-            name="correo" 
-            value="{{ old('correo') }}" >
         @error('correo')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        </div>
+        <div class="col-md-12">
+        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <input class="form-control"  type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{  old('fecha_nacimiento')  }}" >
         <br>
-        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-        <input 
-            type="date" id="fecha_nacimiento" 
-            name="fecha_nacimiento" 
-            value="{{ old('fecha_nacimiento') }}" >
         @error('fecha_nacimiento')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div class="alert alert-danger">{{ $message }}</div>    
         @enderror
+        </div>
+        <div class="col-md-12">
+        <label for="sexo" class="form-label">Sexo:</label>
+        <input class="form-control" type="text" id="sexo" name="sexo" value="{{  old('sexo')  }}" >
         <br>
-        <label for="sexo">Sexo:</label>
-        <input 
-            type="text" id="sexo" 
-            name="sexo" 
-            value="{{ old('sexo') }}" >
         @error('sexo')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @enderror 
+        </div>
+        <div class="col-md-12">  
+        <label for="carrera" class="form-label">Carrera:</label>
+        <input class="form-control" type="text" id="carrera" name="carrera" value="{{  old('carrera')}}" >
         <br>
-        <label for="carrera">Carrera:</label>
-        <input 
-            type="text" id="carrera" 
-            name="carrera" 
-            value="{{ old('carrera') }}" >
         @error('carrera')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        </div>
         <br>
-        <button type="submit">Guardar</button>
-</body>
-</html>
+        <x-boton_guardar/>
+    </form>
+
+</x-tamanio_formulario>
+</x-html_estructura>
