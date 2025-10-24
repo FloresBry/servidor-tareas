@@ -1,17 +1,10 @@
-@php
-    $titulo="Detalle del Alumno ".$alumno->nombre;
-    $rutas_Alumnos=[
-        ['ruta'=>'alumno.index','etiqueta'=>'Listado de Alumnos'],
-        ['ruta'=>'alumno.create','etiqueta'=>'Crear Alumno']
-    ];
-@endphp
-<x-html_estructura>
-    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
+
+<x-layout>
+    <x-slot name="titulo">Detalle del Alumno</x-slot>
+    <x-slot name="titulo_encabezado">Detalle del Alumno {{ $alumno->nombre }}</x-slot>
+    <x-slot name="titulo_visual">Detalle del Alumno {{ $alumno->nombre }}</x-slot>
     <br>
-    <x-titulo>DETALLE DEL ALUMNO</x-titulo>
-    <br>
-    <div class="card mx-auto text-bg-danger border-warning  " style="max-width: 220px">
-        <div class="card-body">
+    <x-card-alumno>
     <h1>Alumno: <h3><italic>{{ $alumno->codigo }}</italic></h3></h1>
     <p>
         <strong>Nombre:</strong><br>
@@ -26,10 +19,9 @@
         {{ $alumno->carrera }}
 
     </p>
-    </div>
-</div>
+    </x-card-alumno>
     <br>
-    <x-boton_enlace href="{{ route('alumno.index') }}">
+    <x-boton-enlace href="{{ route('alumno.index') }}">
     Volver al listado de Alumnos
-    </x-boton_enlace>
-</x-html_estructura>
+    </x-boton-enlace>
+</x-layout>
