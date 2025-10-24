@@ -1,13 +1,10 @@
-<x-html_estructura>
-<!-- Creamos codigo php para poder reutilizar el encabezado -->
-    @php
-        $titulo="Gestion de Alumnos";
-        $rutas_Alumnos=[
-            ['ruta'=>'alumno.index','etiqueta'=>'Listado de Alumnos'],
-            ['ruta'=>'alumno.create','etiqueta'=>'Crear Alumno']
-        ];
-    @endphp
-    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>  
+<x-layout>
+    <x-slot name="titulo">
+        'Gestion de Alumnos'
+    </x-slot>
+    <x-slot name="titulo_encabezado">
+        Gestion de Alumnos
+    </x-slot>  
    <x-titulo>Lista de Alumnos</x-titulo>
     <x-formato_tabla>
         <thead class="table-warning">
@@ -36,11 +33,8 @@
                 </tr>
             @endforeach
         </tbody>
-
-    </x-html_estructura>
+    </x-formato_tabla>
     <x-boton_enlace href="{{ route('alumno.create') }}">
         Crear Alumno
-
     </x-boton_enlace>
-    
-</x-html_estructura>
+</x-layout>
