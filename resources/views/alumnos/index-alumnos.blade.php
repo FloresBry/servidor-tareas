@@ -26,7 +26,7 @@
                 </tr>
             @endforeach
     </x-table>
-    <x-boton_enlace href="{{ route('alumno.create') }}">
+    <x-boton-enlace :href="route('alumno.create')">
         Crear Alumno
-    </x-boton_enlace>
+    </x-boton-enlace>
 </x-layout>

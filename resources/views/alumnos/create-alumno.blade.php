@@ -1,69 +1,16 @@
-@php
-    $titulo="Crear Alumno";
-    $rutas_Alumnos=[
-        ['ruta'=>'alumno.index','etiqueta'=>'Listado de Alumnos'],
-        ['ruta'=>'alumno.create','etiqueta'=>'Crear Alumno']
-    ];
-@endphp
-<x-html_estructura>
-    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
-    <x-titulo>Creacion Alumno</x-titulo>
-    <x-tamanio_formulario>
 
-    @include('form-error')
-    <form action="{{ route('alumno.store') }}" method="post">
-        @csrf
-                <div class="col-md-12">
-        <label for="codigo" class="form-label">Codigo:</label>
-        <input  class="form-control" type="text" id="codigo" name="codigo" value="{{  old('codigo') }}" >
-        <br>
-        @error('codigo')
-            <div class="alert alert-danger">{{ $message }}</div>    
-        @enderror
-        </div>
-        <div class="col-md-12">
-        <label for="nombre" class="form-label">Nombre:</label>
-        <input class="form-control" type="text" id="nombre" name="nombre" value="{{  old('nombre') }}" >
-        <br>
-        @error('nombre')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-md-12">
-        <label for="correo" class="form-label">Correo:</label>
-        <input class="form-control" type="email" id="correo" name="correo" value="{{  old('correo')  }}" >
-        <br>
-        @error('correo')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-md-12">
-        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
-        <input class="form-control"  type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{  old('fecha_nacimiento')  }}" >
-        <br>
-        @error('fecha_nacimiento')
-            <div class="alert alert-danger">{{ $message }}</div>    
-        @enderror
-        </div>
-        <div class="col-md-12">
-        <label for="sexo" class="form-label">Sexo:</label>
-        <input class="form-control" type="text" id="sexo" name="sexo" value="{{  old('sexo')  }}" >
-        <br>
-        @error('sexo')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror 
-        </div>
-        <div class="col-md-12">  
-        <label for="carrera" class="form-label">Carrera:</label>
-        <input class="form-control" type="text" id="carrera" name="carrera" value="{{  old('carrera')}}" >
-        <br>
-        @error('carrera')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        </div>
+<x-layout>
+    <x-slot name="titulo">Creacion Alumno</x-slot>
+    <x-slot name="titulo_encabezado">Creacion Alumno</x-slot>
+    <x-slot name="titulo_visual">Creacion Alumno</x-slot>
+    <x-formato-formulario>
+        <x-formato_input :for="$for='codigo'" :label="$label='Codigo'" :tipo='$tipo="text"' :id='$id="codigo"' :nombre='$nombre="codigo"'/>
+        <x-formato_input :for="$for='correo'" :label="$label='Correo'" :tipo='$tipo="email"' :id='$id="correo"' :nombre='$nombre="correo"'/>
+        <x-formato_input :for="$for='nombre'" :label="$label='Nombre'" :tipo='$tipo="text"' :id='$id="nombre"' :nombre='$nombre="nombre"'/>
+        <x-formato_input :for="$for='fecha_nacimiento'" :label="$label='Fecha de Nacimiento'" :tipo='$tipo="date"' :id='$id="fecha_nacimiento"' :nombre='$nombre="fecha_nacimiento"'/>
+        <x-formato_input :for="$for='sexo'" :label="$label='Sexo'" :tipo='$tipo="text"' :id='$id="sexo"' :nombre='$nombre="sexo"'/>
+        <x-formato_input :for="$for='carrera'" :label="$label='Carrera'" :tipo='$tipo="text"' :id='$id="carrera"' :nombre='$nombre="carrera"'/>
         <br>
         <x-boton_guardar/>
-    </form>
-
-</x-tamanio_formulario>
-</x-html_estructura>
+</x-formato-formulario>
+</x-layout>
