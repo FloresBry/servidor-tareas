@@ -6,7 +6,7 @@
             ['ruta'=>'tarea.create','etiqueta'=>'Crear Tarea']
         ];
     @endphp
-    <x-encabezado :title="$titulo" :rutas="$rutas_Alumnos"/>
+    <x-encabezado :title="$titulo" :rutas="$rutas_Tareas"/>
     <x-titulo>LISTADO</x-titulo>
     <x-formato_tabla>
         <thead class="table-warning">

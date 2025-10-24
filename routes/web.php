@@ -32,5 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
 });
 route::resource('tarea',TareaController::class);
+#Verificar que el usuario este autenticado para ver las rutas de tareas
+
 
 require __DIR__.'/auth.php';

@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tarea;
+use GuzzleHttp\Middleware;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
+use Pest\Plugins\Only;
 use PhpParser\Node\Stmt\Return_;
 
+
 class TareaController extends Controller
+
 {
+
     /**
      * Display a listing of the resource.
      */

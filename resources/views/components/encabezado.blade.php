@@ -9,7 +9,7 @@
 <ul class="nav">
   @foreach ($rutas as $ruta_unica )
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{{ route($ruta_unica['ruta']) }}">{{ $ruta_unica['etiqeuta'] }}</a>
+    <a class="nav-link active" aria-current="page" href="{{ route($ruta_unica['ruta']) }}">{{ $ruta_unica['etiqueta'] }}</a>
   </li>
   @endforeach
 

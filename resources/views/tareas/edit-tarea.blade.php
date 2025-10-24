@@ -12,7 +12,7 @@
         </div>
         @enderror 
         <br >
-        <!--<x-label_pregunta>Descripcion:</x-label_pregunta>-->
+        
         <x-descripcion>{{ old('descripcion') ?? $tarea->descripcion }}</x-descripcion>
         @error('descripcion')
         <div class="alert alert-danger  py-1">
