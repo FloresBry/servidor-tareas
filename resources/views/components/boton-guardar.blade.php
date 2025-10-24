@@ -3,6 +3,6 @@
 <form action="{{ route($action,  $parametro ) }}" method="post">
     @csrf
  {{ $slot }}
- <x-boton-guardar/>
+ <x-boton_guardar/>
  </form>
 </div> 
