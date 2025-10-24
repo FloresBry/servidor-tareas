@@ -1,4 +1,3 @@
-
 <x-layout>
     <x-slot name="titulo">Creacion Alumno</x-slot>
     <x-slot name="titulo_encabezado">Creacion Alumno</x-slot>

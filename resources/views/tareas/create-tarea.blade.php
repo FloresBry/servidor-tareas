@@ -1,16 +1,9 @@
-<x-html_estructura>
-    <x-Encabezado>Creacion Tarea</x-Encabezado>
-    <x-tamanio_formulario>
-    <x-titulo>Crea tu tarea</x-titulo>
-    <form action="{{ route('tarea.store') }}" method="post">
-        @csrf
-        <x-titulo_input>{{ old('titulo') }}</x-titulo_input>
-        @error('titulo')
-        <div class="alert alert-danger  py-1">
-        {{ $message }}
-        </div>
-        @enderror   
-        <br>
+<x-layout>
+    <x-slot name="titulo">Creacion Tarea</x-slot>
+    <x-slot name="titulo_encabezado">Creacion Tarea</x-slot>
+    <x-slot name="titulo_visual">Creacion Tarea</x-slot>
+    <x-formato-formulario :action="$action='tarea.store'">
+        <x-formato_input :for="$for='titulo'" :label="$label='Titulo'" :tipo='$tipo="text"' :id='$id="titulo"' :nombre='$nombre="titulo"' :valor="old('titulo')"/>
         <x-descripcion>{{ old('descripcion') }}</x-descripcion>
         @error('descripcion')
         <div class="alert alert-danger  py-1">
@@ -18,7 +11,5 @@
         </div>
         @enderror  
         <br>
-        <x-boton_guardar/>
-    </form>
-    </x-tamanio_formulario>
-</x-html_estructura>
+    </x-formato-formulario>
+</x-layout>

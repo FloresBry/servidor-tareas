@@ -1,5 +1,5 @@
 
-          
+ 
 <nav class="navbar" style="background-color: #e3f2fd;" data-bs-theme="light">
 <a class="navbar-brand" > <span class="navbar-toggler-icon"></span>{{ $titulo_encabezado }}</a>
 

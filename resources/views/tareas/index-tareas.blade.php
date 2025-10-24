@@ -1,22 +1,8 @@
-<x-html_estructura>
-    @php
-        $titulo="Gestion de Tareas";
-        $rutas_Tareas=[
-            ['ruta'=>'tarea.index','etiqueta'=>'Listado de Tareas'],
-            ['ruta'=>'tarea.create','etiqueta'=>'Crear Tarea']
-        ];
-    @endphp
-    <x-encabezado :title="$titulo" :rutas="$rutas_Tareas"/>
-    <x-titulo>LISTADO</x-titulo>
-    <x-formato_tabla>
-        <thead class="table-warning">
-            <tr >
-                <th scope="col">ID</th>
-                <th scope="col">Titulo</th>
-                <th scope="col-sm">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+<x-layout>
+    <x-slot name="titulo">Listado de Tareas</x-slot>
+    <x-slot name="titulo_encabezado">Listado de Tareas</x-slot>
+    <x-slot name="titulo_visual">Listado de Tareas</x-slot>
+    <x-table :columnas="$columnas=['id','titulo','actiones']">
             @foreach ( $tareas as $tarea )
                 <tr class="table-light">
                     <td>{{ $tarea->id }}</td>
@@ -37,11 +23,8 @@
                     </td>
                 </tr>
             @endforeach
-        </tbody>
-    </x-formato_tabla>
-<x-boton_enlace href="{{ route(name: 'tarea.create') }}">
+    </x-table>
+<x-boton-enlace href="{{ route(name: 'tarea.create') }}">
      Crear nueva tarea
-</x-boton_enlace>
-
-
-</x-html_estructura>
+</x-boton-enlace>
+</x-layout>
