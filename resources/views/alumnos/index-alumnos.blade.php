@@ -5,18 +5,11 @@
     <x-slot name="titulo_encabezado">
         Gestion de Alumnos
     </x-slot>  
-   <x-titulo>Lista de Alumnos</x-titulo>
-    <x-formato_tabla>
-        <thead class="table-warning">
-            <tr>
-                <th>ID</th>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+   <x-slot name="titulo_visual">Lista de Alumnos</x-slot>
+        <?php
+            $columnas = ['ID','Codigo','Nombre','Correo','Acciones'];
+        ?>
+    <x-table :columnas="$columnas">
             @foreach ( $alumnos as $alumno )
                 <tr class="table-light">
                     <td>{{ $alumno->id }}</td>
@@ -32,8 +25,7 @@
                     </td>
                 </tr>
             @endforeach
-        </tbody>
-    </x-formato_tabla>
+    </x-table>
     <x-boton_enlace href="{{ route('alumno.create') }}">
         Crear Alumno
     </x-boton_enlace>
