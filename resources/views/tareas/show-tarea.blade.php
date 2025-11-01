@@ -1,19 +1,22 @@
-<x-layout>
-    <x-slot name="titulo">Detalle de la Tarea</x-slot>
-    <x-slot name="titulo_encabezado">Detalle de la Tarea {{ $tarea->titulo }}</x-slot>
-    <x-slot name="titulo_visual">Detalle de la Tarea {{ $tarea->titulo }}</x-slot>
-    <x-card-alumno>
-            <h5>
-                Tarea: {{ $tarea->id }}
-            </h5>
-            <p> {{ $tarea->titulo }}</p>
-            <p>
-                <strong>Descripcion:</strong><br>
-                {{ $tarea->descripcion }}
-            </p>
-    </x-card-alumno>
-    <br>
-    <x-boton-enlace href="{{ route('tarea.index') }}">
-    Tareas
-    </x-boton-enlace>
-</x-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show tarea</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="{{ route('tarea.index') }}">Index</a>
+        </li> 
+    </ul>
+    <h1>Tarea:  {{$tarea->titulo}}</h1>
+    <p>
+        <strong>Descripcion</strong>
+        <br>
+        {{ $tarea->descripcion }}
+    </p>
+</body>
+</html>

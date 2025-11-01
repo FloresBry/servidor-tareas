@@ -13,7 +13,8 @@ class EdificioController extends Controller
      */
     public function index()
     {
-        //
+        $edificios=Edificio::all();
+        return view('edificios.edificio-index',compact('edificios'));
     }
 
     /**

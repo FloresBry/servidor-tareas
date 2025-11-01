@@ -1,30 +1,42 @@
-<x-layout>
-    <x-slot name="titulo">Listado de Tareas</x-slot>
-    <x-slot name="titulo_encabezado">Listado de Tareas</x-slot>
-    <x-slot name="titulo_visual">Listado de Tareas</x-slot>
-    <x-table :columnas="$columnas=['id','titulo','actiones']">
-            @foreach ( $tareas as $tarea )
-                <tr class="table-light">
-                    <td>{{ $tarea->id }}</td>
-                    <td>
-                        <a href="{{route('tarea.show',$tarea->id) }}">
-                        {{ $tarea->titulo }}
-                        </a>
-                    </td>
-                    <td >
-                        <div class="d-grid gap-1 col-4 mx-auto">
-                        <a  class="btn btn-primary "href="{{ route('tarea.edit',$tarea->id) }}">Editar</a>
-                        <form action="{{ route('tarea.destroy',$tarea->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger"type="submit">Eliminar</button>
-                        </form>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-    </x-table>
-<x-boton-enlace href="{{ route(name: 'tarea.create') }}">
-     Crear nueva tarea
-</x-boton-enlace>
-</x-layout>
+<x-layouts.app :title="__('Dashboard')">
+    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
+        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <h1>Listado de tareas</h1>
+            <ul>
+                <li>
+                    <a href="{{ route('tarea.create') }}">Crear Nueva Tarea</a>
+                </li>
+            </ul>
+            <div class="overflow-x-auto">
+            <table border="1" class='min-w-full divide-y-2 divide-gray-200'>
+                <thead class="ltr:text-left rtl:text-right">
+                    <tr class="*:font-medium *:text-gray-900">
+                        <th class="px-3 py-2 whitespace-nowrap">ID </th>
+                        <th class="px-3 py-2 whitespace-nowrap">Titulo</th>
+                        <th class="px-3 py-2 whitespace-nowrap">Acciones</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    @foreach ($tareas as $tarea)
+                        <tr>
+                            <td>{{$tarea->id}}</td>
+                            <td>
+                                <a href="{{ route('tarea.show', $tarea->id) }}">{{$tarea->titulo}}</a>
+                            
+                            </td>
+                            <td>
+                                <a class='btn btn-warning' href="{{ route('tarea.edit', $tarea->id) }}">Editar</a>
+                                <br>
+                                <form action="{{ route('tarea.destroy', $tarea->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
+                        <tr>
+                    @endforeach
+                </tbody>
+            </table>
+            </div>
+    </div>
+</x-layouts.app>

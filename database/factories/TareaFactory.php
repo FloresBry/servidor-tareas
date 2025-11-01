@@ -17,8 +17,9 @@ class TareaFactory extends Factory
     public function definition(): array
     {
         return [
-            'titulo' => $this->faker->word(),
-            'descripcion' => $this->faker->sentence(),
+
+            'titulo'=> fake()->sentence(),
+            'descripcion'=> fake()->paragraph()
         ];
     }
 }
